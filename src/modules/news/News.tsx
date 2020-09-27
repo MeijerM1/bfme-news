@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List, Typography } from 'antd';
+import { Typography } from 'antd';
 import styles from './news.module.less';
 import { FixedSizeList as VList } from 'react-window'
 
