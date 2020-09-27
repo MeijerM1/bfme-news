@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { List, Typography } from 'antd';
 import styles from './news.module.less';
+import { FixedSizeList as VList } from 'react-window'
+
 const Parser = require('rss-parser');
 
 const RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
+const GUTTER_SIZE = 5;
 
 export const News = () => {
     const rssParser = new Parser();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<any[]>([]);
 
     useEffect(() => {
         rssParser.parseURL(RSS_FEED_URL).then((feed: any) => {
@@ -16,14 +19,22 @@ export const News = () => {
         });
     }, []);
 
-    const listItem = (item: any) => {
-        console.log(item);
+    const listItem = ({index, style }: {index: number, style: any}) => {
+        const item = data[index];
 
         const dateFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
         const displayDate = new Date(item.isoDate).toLocaleDateString(undefined, dateFormatOptions);
 
-        const element = (
-            <div className={styles.item_container}>
+        const itemStyles = {
+            ...style,
+            left: style.left + GUTTER_SIZE,
+            top: style.top + GUTTER_SIZE,
+            width: style.width - GUTTER_SIZE,
+            height: style.height - GUTTER_SIZE
+        }
+
+        return (
+            <div style={itemStyles} className={styles.item_container}>
                 <div className={styles.background} style={{ backgroundImage: `url(${item.enclosure.url})` }}></div>
                 <div className={styles.news_item}>
                     <Typography.Title className={styles.title}>{item.title}</Typography.Title>
@@ -35,20 +46,21 @@ export const News = () => {
                 </div>
             </div>
         )
+    }
 
-
-        const plainElement = document.querySelector(`#${item.guid}`)
-
-
-        return element;
+    if(data.length === 0) {
+        return <h2>no data</h2>
     }
 
     return (
         <div className={styles.news_container}>
-            <List
-                dataSource={data}
-                renderItem={listItem}
-            />
+            <VList
+                height={1000}
+                width={900}
+                itemSize={400}
+                itemCount={10}>
+                {listItem}
+            </VList>
         </div>
     )
 }
