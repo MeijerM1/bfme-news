@@ -1,0 +1,32 @@
+@import '~antd/lib/style/themes/default.less';
+@import '~antd/dist/antd.less';
+@import './theme.less';
+
+@gradient-color-from: #4B4B4B;
+@gradient-color-to: #2B2B2B;
+
+body {
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    /* IE10 Consumer Preview */ 
+    background-image: -ms-linear-gradient(bottom, @gradient-color-from 0%, @gradient-color-to 100%);
+    /* Mozilla Firefox */ 
+    background-image: -moz-linear-gradient(bottom, @gradient-color-from 0%, @gradient-color-to 100%);
+    /* Opera */ 
+    background-image: -o-linear-gradient(bottom, @gradient-color-from 0%, @gradient-color-to 100%);
+    /* Webkit (Safari/Chrome 10) */ 
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @gradient-color-from), coler-stop(1, @gradient-color-to));
+    /* Webkit (Chrome 11+) */ 
+    background-image: -webkit-linear-gradient(bottom, @gradient-color-from 0%, @gradient-color-to 100%);
+    /* W3C Markup, IE10 Release Preview */ 
+    background-image: linear-gradient(to top, @gradient-color-from 0%, @gradient-color-to 100%);
+
+    font-family: 'Cormorant Infant', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
