@@ -12,7 +12,6 @@ export const News = () => {
     const rssParser = new Parser();
     const [data, setData] = useState<any[]>([]);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         rssParser.parseURL(RSS_FEED_URL).then((feed: any) => {
             console.log(feed.items);
@@ -20,7 +19,7 @@ export const News = () => {
         });
     }, []);
 
-    const listItem = ({index, style }: {index: number, style: any}) => {
+    const listItem = ({ index, style }: { index: number, style: any }) => {
         const item = data[index];
 
         const dateFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -49,7 +48,7 @@ export const News = () => {
         )
     }
 
-    if(data.length === 0) {
+    if (data.length === 0) {
         return <h2>no data</h2>
     }
 
