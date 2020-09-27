@@ -12,6 +12,7 @@ export const News = () => {
     const rssParser = new Parser();
     const [data, setData] = useState<any[]>([]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         rssParser.parseURL(RSS_FEED_URL).then((feed: any) => {
             console.log(feed.items);
