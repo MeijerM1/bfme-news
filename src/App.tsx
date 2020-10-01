@@ -1,14 +1,20 @@
+import { Layout } from 'antd';
 import React from 'react';
 import './App.less';
-import { Header } from './modules/header/Header';
+import { Header as CustomHeader } from './modules/header/Header';
 import { News } from './modules/news/News';
+const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <News />
-    </div>
+    <Layout>
+      <Header>
+        <CustomHeader />
+      </Header>
+      <Content>
+        <News />
+      </Content>
+    </Layout>
   );
 }
 

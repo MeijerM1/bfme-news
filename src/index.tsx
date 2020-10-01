@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './App.less';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'react-virtualized/styles.css';
 
 ReactDOM.render(
   // <React.StrictMode>
