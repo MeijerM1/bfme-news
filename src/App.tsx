@@ -3,7 +3,7 @@ import React from 'react';
 import './App.less';
 import { Header as CustomHeader } from './modules/header/Header';
 import { News } from './modules/news/News';
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content } = Layout;
 
 function App() {
   return (
