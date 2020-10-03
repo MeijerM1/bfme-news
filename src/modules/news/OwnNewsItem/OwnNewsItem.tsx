@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './ownNewsItem.module.less';
 import { Typography } from 'antd';
+import { NewsItem as NewsItemModel } from '../../../domain/Newsitem';
 
 interface OwnNewsItemProps {
     listIndex: number,
     listStyles: any,
-    newsItem: any
+    newsItem: NewsItemModel
 }
 
 const GUTTER_SIZE = 5;

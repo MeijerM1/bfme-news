@@ -3,13 +3,14 @@ import styles from './news.module.less';
 import { DesignedNewsItem } from './DesignedNewsItem/DesignedNewsItem';
 import { AutoSizer, List } from 'react-virtualized';
 import { Spin } from 'antd';
+import { NewsItem } from '../../domain/Newsitem';
 const Parser = require('rss-parser');
 
 const RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
 
 export const News = () => {
     const rssParser = new Parser();
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<NewsItem[]>([]);
 
     useEffect(() => {
         rssParser.parseURL(RSS_FEED_URL).then((feed: any) => {

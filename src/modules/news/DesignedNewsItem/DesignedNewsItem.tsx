@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './designedNewsItem.module.less';
 import { Typography } from 'antd';
+import { NewsItem } from '../../../domain/Newsitem';
 
 interface DesignedNewsItemProps {
     listIndex: number,
     listStyles: any,
-    newsItem: any
+    newsItem: NewsItem
 }
 
 
