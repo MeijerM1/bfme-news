@@ -6,7 +6,15 @@ import { Spin } from 'antd';
 import { NewsItem } from '../../domain/Newsitem';
 const Parser = require('rss-parser');
 
-const RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
+let RSS_FEED_URL: string;
+
+// For simplicity leave this here.
+// Should be extracted to a config file of some sorts.
+if (process.env.NODE_ENV === 'production') {
+    RSS_FEED_URL = 'https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
+} else {
+    RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
+}
 
 export const News = () => {
     const rssParser = new Parser();
@@ -14,7 +22,6 @@ export const News = () => {
 
     useEffect(() => {
         rssParser.parseURL(RSS_FEED_URL).then((feed: any) => {
-            console.log(feed.items);
             setData(feed.items);
         });
     }, []);
