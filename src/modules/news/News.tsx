@@ -11,7 +11,7 @@ let RSS_FEED_URL: string;
 // For simplicity leave this here.
 // Should be extracted to a config file of some sorts.
 if (process.env.NODE_ENV === 'production') {
-    RSS_FEED_URL = 'https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
+    RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
 } else {
     RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
 }
