@@ -1,17 +1,16 @@
 import React from 'react';
-import styles from './news.module.less';
+import styles from './ownNewsItem.module.less';
 import { Typography } from 'antd';
 
-interface NewsItemProps {
+interface OwnNewsItemProps {
     listIndex: number,
     listStyles: any,
     newsItem: any
 }
 
-
 const GUTTER_SIZE = 5;
 
-export const NewsItem =  (props: NewsItemProps) => {
+export const NewsItem =  (props: OwnNewsItemProps) => {
 
     const dateFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
     const displayDate = new Date(props.newsItem.isoDate).toLocaleDateString(undefined, dateFormatOptions);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './news.module.less';
-import { NewNewsItem } from './NewNewsItem';
+import { DesignedNewsItem } from './DesignedNewsItem/DesignedNewsItem';
 import { AutoSizer, List } from 'react-virtualized';
 
 const Parser = require('rss-parser');
@@ -22,7 +22,7 @@ export const News = () => {
         const newsItem = data[index];
 
         return (
-            <NewNewsItem key={key} listStyles={style} listIndex={index} newsItem={newsItem} />
+            <DesignedNewsItem key={key} listStyles={style} listIndex={index} newsItem={newsItem} />
         )
     }
 
@@ -38,7 +38,7 @@ export const News = () => {
         <div className={styles.news_container}>
             <AutoSizer disableHeight >
                 {({ width }) => {
-                    let rowHeigth = 450;
+                    let rowHeigth = 400;
 
                     if(window.innerWidth < 720) {
                         rowHeigth = 550;
