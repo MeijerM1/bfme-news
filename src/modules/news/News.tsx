@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './news.module.less';
 import { DesignedNewsItem } from './DesignedNewsItem/DesignedNewsItem';
 import { AutoSizer, List } from 'react-virtualized';
-
+import { Spin } from 'antd';
 const Parser = require('rss-parser');
 
 const RSS_FEED_URL = 'https://cors-anywhere.herokuapp.com/https://rss.moddb.com/mods/the-battle-for-middle-earth-reforged/articles/feed/rss.xml';
@@ -28,8 +28,8 @@ export const News = () => {
 
     if (data.length === 0) {
         return (
-            <div className={styles.news_container}>
-                <h2>no data</h2>
+            <div className={styles.loading_container}>
+                <Spin size="large"/>
             </div>
         )
     }
