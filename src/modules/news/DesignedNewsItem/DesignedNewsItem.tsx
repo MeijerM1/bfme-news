@@ -21,7 +21,6 @@ export const DesignedNewsItem =  (props: DesignedNewsItemProps) => {
         ...props.listStyles,
         left: props.listStyles.left + GUTTER_SIZE,
         top: props.listStyles.top + GUTTER_SIZE,
-        height: props.listStyles.height - GUTTER_SIZE
     }
 
     const openInNewTab = (url: string) => {
@@ -37,6 +36,7 @@ export const DesignedNewsItem =  (props: DesignedNewsItemProps) => {
                 <div >
                     <Typography.Paragraph>{props.newsItem.contentSnippet}</Typography.Paragraph>
                 </div>
+                <div className={styles.spacer}></div>
                 <span className={styles.date}>{displayDate.toUpperCase()}</span>
             </div>
         </div>

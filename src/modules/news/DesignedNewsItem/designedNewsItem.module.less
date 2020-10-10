@@ -1,11 +1,14 @@
 .item_container {
-    display: flex;
+    height: 350px !important;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     max-width: calc(80%) !important;
     background-color: #541707;    
 
     img {
         object-fit: cover;
-        max-width: 70%;
+        width: 100%;
+        height: 100%;
     }
 
     &:hover {
@@ -14,16 +17,38 @@
 }
 
 .news_item_content {
-    width: 30%;
     min-width: 210px;
     background-color: #541707;
     padding: 32px;
     display: flex;
     flex-direction: column;
 
+    h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;    
+    }
+
     div {
         flex-grow: 1; 
+        max-height: 100px;
+        line-height: 20px;
+        word-break: break-all;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-line-clamp: 5;
+        -moz-line-clamp: 5;
+        -ms-line-clamp: 5;
+        line-clamp: 5;
+        overflow: hidden;
     }
+}
+
+.spacer {
+    flex-grow: 1;
 }
 
 .header {
