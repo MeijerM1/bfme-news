@@ -1,14 +1,21 @@
 .item_container {
     display: flex;
-    width: calc(100% - 32px) !important;
+    max-width: calc(80%) !important;
+    background-color: #541707;    
 
     img {
+        object-fit: cover;
         max-width: 70%;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
 .news_item_content {
     width: 30%;
+    min-width: 210px;
     background-color: #541707;
     padding: 32px;
     display: flex;

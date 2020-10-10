@@ -24,8 +24,13 @@ export const DesignedNewsItem =  (props: DesignedNewsItemProps) => {
         height: props.listStyles.height - GUTTER_SIZE
     }
 
+    const openInNewTab = (url: string) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
+
     return (
-        <div style={itemStyles} className={styles.item_container}>
+        <div onClick={() => openInNewTab(props.newsItem.link)} style={itemStyles} className={styles.item_container}>
             <img src={props.newsItem.enclosure.url} alt={props.newsItem.title}></img>
             <div className={styles.news_item_content}>
                 <Typography.Title level={3} className={styles.header}>{props.newsItem.title.toUpperCase()}</Typography.Title>
